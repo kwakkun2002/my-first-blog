@@ -6,17 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <link rel="icon" href="favicon.ico">
-  {% load static %}
-
+  
 
   <title>PRS</title>
 
+  {% load static %}
   <!-- Bootstrap core CSS -->
-  <link href="{% static 'bootstrap.min.css'%}" rel="stylesheet">
-
+  <link href="{% static 'bootstrap.min.css' %}" rel="stylesheet">
+  <link rel="icon" href="../static/favicon.ico">
   <!-- Custom styles for this template -->
-  <link href="{% static 'jumbotron.css' %}" rel="stylesheet">
+  <link href='{% static "jumbotron.css" %}' rel="stylesheet">
 </head>
 
 <body>
@@ -28,9 +27,10 @@
       <div class="container">
         <div style="display:flex; justify-content: space-around;">
           <div>
-            <img src="../static/rock.png" width="200" height="200">
+            <img src="{% static 'rock.png' %}" width="200" height="200">
             <h2 style="text-align: center;">YOU PICK</h2>
           </div>
+
           <div>
             <h2>Score</h2>
             <div style="display:flex; justify-content: space-around;">
@@ -42,8 +42,9 @@
                 </div>
             </div>
           </div>
+
           <div>
-            <img src="../static/paper.png" width="200" height="200">
+            <img src="{% static 'paper.png'%} " width="200" height="200">
             <h2 style="text-align: center;">AI PICK</h2>
           </div>
         </div>
@@ -54,15 +55,15 @@
       <!-- Example row of columns -->
       <div class="row" style="display:flex; justify-content: space-around;">
         <button class="btn btn-primary btn-lg">
-          <img src="../static/rock.png" width="200" height="200">
+          <img src="{% static 'rock.png'%}" width="200" height="200">
           <h2>ROCK</h2>
         </button>
         <button class="btn btn-primary btn-lg">
-          <img src="../static/paper.png" width="200" height="200">
+          <img src="{% static 'paper.png'%}" width="200" height="200">
           <h2>PAPER</h2>
         </button>
         <button class="btn btn-primary btn-lg">
-          <img src="../static/scissors.png" width="200" height="200">
+          <img src="{% static 'scissors.png'%}" width="200" height="200">
           <h2>SCISSOR</h2>
         </button>
       </div>
