@@ -26,7 +26,7 @@ for line in rdr:
 
 f.close()    
 
-static_num = int(cach[0])
+static_num = int(cach[0])+1
 
 def model():
     RSP = pd.read_csv("RPS/data.csv")
@@ -83,7 +83,7 @@ def model():
             output = "scissor"
     else:
         output = "paper"
-
+    print(output)
     return output
 
 
