@@ -1,7 +1,8 @@
 from django.contrib import admin
-from .models import Input,Data
+from .models import *
 
 # Register your models here.
 
-admin.site.register(Input)
-admin.site.register(Data)
+admin.site.register(InputData)
+admin.site.register(Output)
+admin.site.register(Score)

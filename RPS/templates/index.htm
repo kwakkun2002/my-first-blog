@@ -1,3 +1,5 @@
+{% load static %}
+
 <!doctype html>
 <html lang="en">
 
@@ -8,12 +10,11 @@
   <meta name="author" content="">
   
 
-  <title>PRS</title>
+  <title>RPS</title>
 
-  {% load static %}
+
   <!-- Bootstrap core CSS -->
   <link href="{% static 'bootstrap.min.css' %}" rel="stylesheet">
-  <link rel="icon" href="../static/favicon.ico">
   <!-- Custom styles for this template -->
   <link href='{% static "jumbotron.css" %}' rel="stylesheet">
 </head>
@@ -21,13 +22,20 @@
 <body>
   <main role="main">
 
+    
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
         <div style="display:flex; justify-content: space-around;">
           <div>
-            <img src="{% static 'rock.png' %}" width="200" height="200">
+              {% if data.Player == "rock"%}
+              <img src="{% static 'rock.png' %}" width="200" height="200">
+              {% elif data.Player == "paper"%}
+              <img src="{% static 'paper.png' %}" width="200" height="200">
+              {% else %}
+              <img src="{% static 'scissors.png' %}" width="200" height="200">
+              {%endif%}
             <h2 style="text-align: center;">YOU PICK</h2>
           </div>
 
@@ -35,37 +43,51 @@
             <h2>Score</h2>
             <div style="display:flex; justify-content: space-around;">
                 <div>
-                    <p style="font-size: 2em; ">4</p>
+                    <p style="font-size: 2em; ">{{score.player_score}}</p>
                 </div>
                 <div>
-                    <p style="font-size: 2em;">1</p>
+                    <p style="font-size: 2em;">{{score.ai_score}}</p>
                 </div>
             </div>
           </div>
 
           <div>
-            <img src="{% static 'paper.png'%} " width="200" height="200">
+            {% if data.ai == "rock"%}
+              <img src="{% static 'rock.png' %}" width="200" height="200">
+              {% elif data.ai == "paper"%}
+              <img src="{% static 'paper.png' %}" width="200" height="200">
+              {% else %}
+              <img src="{% static 'scissors.png' %}" width="200" height="200">
+              {%endif%}
             <h2 style="text-align: center;">AI PICK</h2>
           </div>
         </div>
       </div>
     </div>
 
+    
+
     <div class="container">
       <!-- Example row of columns -->
       <div class="row" style="display:flex; justify-content: space-around;">
-        <button class="btn btn-primary btn-lg">
-          <img src="{% static 'rock.png'%}" width="200" height="200">
-          <h2>ROCK</h2>
-        </button>
-        <button class="btn btn-primary btn-lg">
-          <img src="{% static 'paper.png'%}" width="200" height="200">
-          <h2>PAPER</h2>
-        </button>
-        <button class="btn btn-primary btn-lg">
-          <img src="{% static 'scissors.png'%}" width="200" height="200">
-          <h2>SCISSOR</h2>
-        </button>
+
+          <button class="btn btn-primary btn-lg" onclick="location.href='{% url 'rock' %}'">
+            <img src='{% static "rock.png"%}' width="200" height="200">
+            <h2>ROCK</h2>
+          </button>
+  
+          <button class="btn btn-primary btn-lg" onclick="location.href='{% url 'paper' %}'">
+            <img src="{% static 'paper.png'%}" width="200" height="200">
+            <h2>PAPER</h2>
+          </button>
+  
+          <button class="btn btn-primary btn-lg" onclick="location.href='{% url 'scissor' %}'">
+            <img src="{% static 'scissors.png'%}" width="200" height="200">
+            <h2>SCISSOR</h2>
+          </button>
+
+        
+
       </div>
       <hr>
     </div> <!-- /container -->
@@ -83,8 +105,8 @@
     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
     crossorigin="anonymous"></script>
   <script>window.jQuery || document.write('<script src="jquery-slim.min.js"><\/script>')</script>
-  <script src="popper.min.js"></script>
-  <script src="bootstrap.min.js"></script>
+  <script src="{% static 'popper.min.js'%}"></script>
+  <script src="{% static 'bootstrap.min.js'%}"></script>
 </body>
 
 </html>
